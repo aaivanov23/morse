@@ -28,8 +28,8 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.netcracker.Main</mainClass>
-                            <packageName>com.netcracker</packageName>
+                            <mainClass>com.example.Main</mainClass>
+                            <packageName>com.example</packageName>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
                         </manifest>

@@ -1,4 +1,4 @@
-package com.netcracker.morseEncoder;
+package com.example.morseEncoder;
 
 public interface MorseEncoder {
     void encodeFromConsoleToConsole();

@@ -1,7 +1,7 @@
-package com.netcracker;
+package com.example;
 
-import com.netcracker.morseEncoder.MorseEncoder;
-import com.netcracker.morseEncoder.MorseEncoderImpl;
+import com.example.morseEncoder.MorseEncoder;
+import com.example.morseEncoder.MorseEncoderImpl;
 
 import java.io.IOException;
 import java.util.Scanner;

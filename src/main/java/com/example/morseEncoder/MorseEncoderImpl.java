@@ -1,4 +1,4 @@
-package com.netcracker.morseEncoder;
+package com.example.morseEncoder;
 
 import java.io.*;
 import java.util.HashMap;
