@@ -32,6 +32,7 @@ public class Main {
         if (action == 1) {
             morseEncoder.encodeFromConsoleToConsole();
         } else if (action == 2) {
+            //todo write action according to menu
             morseDecoder.decoder(".... . .-.. .-.. ---    -- -.--    ..-. .-. .. . -. -.. ...    .... --- .--    .- .-. .    -.-- --- ..-");
         } else if (action == 3) {
             morseEncoder.encodeFromFileToConsole();
