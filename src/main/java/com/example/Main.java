@@ -1,5 +1,7 @@
 package com.example;
 
+import com.example.morseDecoder.MorseDecoder;
+import com.example.morseDecoder.MorseDecoderImpl;
 import com.example.morseEncoder.MorseEncoder;
 import com.example.morseEncoder.MorseEncoderImpl;
 
@@ -12,6 +14,7 @@ public class Main {
 //        BufferedReader scanner = new BufferedReader(new InputStreamReader(System.in));
         Scanner scanner = new Scanner(System.in);
         MorseEncoder morseEncoder = new MorseEncoderImpl();
+        MorseDecoder morseDecoder = new MorseDecoderImpl();
 
         // Menu
         System.out.println("[1] Ввод данных в консоль, получение закодированных данных в консоль");
@@ -28,12 +31,15 @@ public class Main {
 
         if (action == 1) {
             morseEncoder.encodeFromConsoleToConsole();
+        } else if (action == 2) {
+            //todo write action according to menu
+            morseDecoder.decoder(".... . .-.. .-.. ---    -- -.--    ..-. .-. .. . -. -.. ...    .... --- .--    .- .-. .    -.-- --- ..-");
         } else if (action == 3) {
             morseEncoder.encodeFromFileToConsole();
         } else if(action == 4) {
             morseEncoder.encodeFromConsoleToFile();
         }else {
-            System.out.println("Функциаонал находится в разработке");
+            System.out.println("Функционал находится в разработке");
         }
     }
 }
