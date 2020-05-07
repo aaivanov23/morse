@@ -1,41 +1,12 @@
 package com.example.morseEncoder;
 
+import com.example.MorseCommonHelper;
+
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import java.util.Scanner;
 
-public class MorseEncoderImpl implements MorseEncoder {
-    private static final Map<Character, String> morseCode = new HashMap<>() {{
-        put('a', ".-");
-        put('b', "-...");
-        put('c', "-.-.");
-        put('d', "-..");
-        put('e', ".");
-        put('f', "..-.");
-        put('g', "--.");
-        put('h', "....");
-        put('i', "..");
-        put('j', ".---");
-        put('k', "-.-");
-        put('l', ".-..");
-        put('m', "--");
-        put('n', "-.");
-        put('o', "---");
-        put('p', ".--.");
-        put('q', "--.-");
-        put('r', ".-.");
-        put('s', "...");
-        put('t', "-");
-        put('u', "..-");
-        put('v', "...-");
-        put('w', ".--");
-        put('x', "-..-");
-        put('y', "-.--");
-        put('z', "--..");
-        put(' ', "  ");
-    }};
-
+public class MorseEncoderImpl extends MorseCommonHelper implements MorseEncoder {
     @Override
     public void encodeFromConsoleToConsole() {
         Scanner scanner1 = new Scanner(System.in);
@@ -57,19 +28,11 @@ public class MorseEncoderImpl implements MorseEncoder {
         StringBuilder result = new StringBuilder();
         System.out.println("Введите абсолютный путь до файла: ");
         String path = scanner1.nextLine();
-        try (FileInputStream fin = new FileInputStream(path);) {
-            int i;
-            do {
-                i = fin.read();
-                if (i != -1) result.append(morseCode.get((char) i)).append(" ");
-            } while (i != -1);
-        } catch (FileNotFoundException e) {
-            System.out.println("Файла по указанному пути не существует");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(result.toString());
+        List<Character> list = readDataFromFile(path);
+        list.forEach(item -> {
+            result.append(morseCode.get(item)).append(" ");
+        });
+        System.out.println("\nResult:\n" + result.toString());
     }
 
     @Override
