@@ -1,6 +1,7 @@
 package com.example;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -52,5 +53,17 @@ public class MorseCommonHelper {
         }
 
         return list;
+    }
+
+    protected void saveDataToFile(String path, String msg) {
+        try (FileOutputStream fout = new FileOutputStream(path)) {
+            char[] charArray = msg.toLowerCase().toCharArray();
+            for (char c : charArray) {
+                fout.write(c);
+            }
+            System.out.println("File successfully updated");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
