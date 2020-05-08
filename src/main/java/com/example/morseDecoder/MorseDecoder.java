@@ -1,5 +1,6 @@
 package com.example.morseDecoder;
 
 public interface MorseDecoder {
-    void decoder(String msg);
+    String decoder(String msg);
+    void decodeFromConsoleToConsole();
 }

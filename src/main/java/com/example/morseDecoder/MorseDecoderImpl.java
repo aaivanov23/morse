@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class MorseDecoderImpl extends MorseCommonHelper implements MorseDecoder {
     @Override
-    public void decoder(String msg) {
+    public String decoder(String msg) {
         StringBuilder result = new StringBuilder();
         String[] s = msg.split(" ");
         int count = 0;
@@ -26,6 +26,11 @@ public class MorseDecoderImpl extends MorseCommonHelper implements MorseDecoder 
             }
         }
 
-        System.out.println(result.toString());
+        return result.toString();
+    }
+
+    public void decodeFromConsoleToConsole() {
+        String result = decoder(readDataFromConsole());
+        System.out.println(result);
     }
 }

@@ -4,10 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class MorseCommonHelper {
     protected static final Map<Character, String> morseCode = new HashMap<>() {{
@@ -65,5 +62,11 @@ public class MorseCommonHelper {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    protected String readDataFromConsole() {
+        Scanner scanner1 = new Scanner(System.in);
+        System.out.print("Please enter message: ");
+        return scanner1.nextLine();
     }
 }
