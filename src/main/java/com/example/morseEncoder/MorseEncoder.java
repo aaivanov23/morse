@@ -1,7 +1,8 @@
 package com.example.morseEncoder;
 
+import java.util.List;
+
 public interface MorseEncoder {
-    void encodeFromConsoleToConsole();
-    void encodeFromFileToConsole();
-    void encodeFromConsoleToFile();
+    String encoder(String msg);
+    <T> String encoder(List<T> list);
 }

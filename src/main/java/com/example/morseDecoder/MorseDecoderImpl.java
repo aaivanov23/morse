@@ -2,14 +2,13 @@ package com.example.morseDecoder;
 
 import com.example.MorseCommonHelper;
 
-import java.util.HashMap;
 import java.util.Map;
 
-public class MorseDecoderImpl extends MorseCommonHelper implements MorseDecoder {
+public class MorseDecoderImpl implements MorseDecoder {
     @Override
-    public String decoder(String msg) {
+    public String decoder(String code) {
         StringBuilder result = new StringBuilder();
-        String[] s = msg.split(" ");
+        String[] s = code.split(" ");
         int count = 0;
         for (String item : s) {
             if (item.equals("")) {
@@ -19,7 +18,7 @@ public class MorseDecoderImpl extends MorseCommonHelper implements MorseDecoder 
                     count = 0;
                 }
             }
-            for (Map.Entry<Character, String> entry : morseCode.entrySet()) {
+            for (Map.Entry<Character, String> entry : MorseCommonHelper.morseCode.entrySet()) {
                 if (entry.getValue().equals(item)) {
                     result.append(entry.getKey());
                 }
@@ -27,10 +26,5 @@ public class MorseDecoderImpl extends MorseCommonHelper implements MorseDecoder 
         }
 
         return result.toString();
-    }
-
-    public void decodeFromConsoleToConsole() {
-        String result = decoder(readDataFromConsole());
-        System.out.println(result);
     }
 }

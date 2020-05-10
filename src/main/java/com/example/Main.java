@@ -6,6 +6,7 @@ import com.example.morseEncoder.MorseEncoder;
 import com.example.morseEncoder.MorseEncoderImpl;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -29,13 +30,21 @@ public class Main {
         System.out.println();
 
         if (action == 1) {
-            morseEncoder.encodeFromConsoleToConsole();
+            String text = MorseCommonHelper.readDataFromConsole();
+            String code = morseEncoder.encoder(text);
+            System.out.println(code);
         } else if (action == 2) {
-            morseDecoder.decodeFromConsoleToConsole();
+            String code = MorseCommonHelper.readDataFromConsole();
+            String result = morseDecoder.decoder(code);
+            System.out.println(result);
         } else if (action == 3) {
-            morseEncoder.encodeFromFileToConsole();
+            List<Character> list = MorseCommonHelper.readDataFromFile();
+            String code = morseEncoder.encoder(list);
+            System.out.println(code);
         } else if (action == 4) {
-            morseEncoder.encodeFromConsoleToFile();
+            String text = MorseCommonHelper.readDataFromConsole();
+            String code = morseEncoder.encoder(text);
+            MorseCommonHelper.saveDataToFile(code);
         } else if (action == 5) {
 
         } else {

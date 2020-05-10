@@ -3,11 +3,10 @@ package com.example;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class MorseCommonHelper {
-    protected static final Map<Character, String> morseCode = new HashMap<>() {{
+    public static final Map<Character, String> morseCode = new HashMap<>() {{
         put('a', ".-");
         put('b', "-...");
         put('c', "-.-.");
@@ -37,7 +36,11 @@ public class MorseCommonHelper {
         put(' ', "  ");
     }};
 
-    protected ArrayList<Character> readDataFromFile(String path) {
+    public static ArrayList<Character> readDataFromFile() {
+        Scanner scanner1 = new Scanner(System.in);
+        System.out.println("Please enter absolute path to the file: ");
+        String path = scanner1.nextLine();
+
         ArrayList<Character> list = new ArrayList<>();
         int i;
         try (FileInputStream fin = new FileInputStream(path)) {
@@ -48,11 +51,14 @@ public class MorseCommonHelper {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return list;
     }
 
-    protected void saveDataToFile(String path, String msg) {
+    public static void saveDataToFile(String msg) {
+        Scanner scanner1 = new Scanner(System.in);
+        System.out.println("Please enter absolute path to the file: ");
+        String path = scanner1.nextLine();
+
         try (FileOutputStream fout = new FileOutputStream(path)) {
             char[] charArray = msg.toLowerCase().toCharArray();
             for (char c : charArray) {
@@ -64,7 +70,7 @@ public class MorseCommonHelper {
         }
     }
 
-    protected String readDataFromConsole() {
+    public static String readDataFromConsole() {
         Scanner scanner1 = new Scanner(System.in);
         System.out.print("Please enter message: ");
         return scanner1.nextLine();
