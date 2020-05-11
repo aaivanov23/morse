@@ -34,6 +34,14 @@ public class MorseCommonHelper {
         put('y', "-.--");
         put('z', "--..");
         put(' ', "  ");
+        put('.', ".-.-.-");
+        put(',', "--..--");
+        put('?', "..--..");
+        put('!', "--..--");
+        put(':', "---...");
+        put(';', "-.-.-.");
+        put('-', "-...-");
+        put('/', "-..-.");
     }};
 
     public static ArrayList<Character> readDataFromFile() {
