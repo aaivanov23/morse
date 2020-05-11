@@ -46,7 +46,15 @@ public class MorseCommonHelper {
         try (FileInputStream fin = new FileInputStream(path)) {
             do {
                 i = fin.read();
-                if (i != -1) list.add((char) i);
+                // приводим все прочитанные биты к нижнему регистру, потому что в коде Морзе буквы только нижнего регистра
+                char c = (char) i;
+                String s = Character.toString(c).toLowerCase();
+                char[] chars = s.toCharArray();
+                int i2 = chars[0];
+
+                // добавляем символы в лист
+                if (i != -1) list.add((char) i2);
+
             } while (i != -1);
         } catch (IOException e) {
             e.printStackTrace();

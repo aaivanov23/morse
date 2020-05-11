@@ -38,17 +38,21 @@ public class Main {
             String result = morseDecoder.decoder(code);
             System.out.println(result);
         } else if (action == 3) {
-            List<Character> list = MorseCommonHelper.readDataFromFile();
-            String code = morseEncoder.encoder(list);
+            List<Character> text = MorseCommonHelper.readDataFromFile();
+            String code = morseEncoder.encoder(text);
             System.out.println(code);
         } else if (action == 4) {
             String text = MorseCommonHelper.readDataFromConsole();
             String code = morseEncoder.encoder(text);
             MorseCommonHelper.saveDataToFile(code);
         } else if (action == 5) {
-
+            List<Character> code = MorseCommonHelper.readDataFromFile();
+            String text = morseDecoder.decoder(code);
+            System.out.println(text);
         } else {
-            System.out.println("Функционал находится в разработке");
+            List<Character> text = MorseCommonHelper.readDataFromFile();
+            String code = morseEncoder.encoder(text);
+            MorseCommonHelper.saveDataToFile(code);
         }
     }
 }

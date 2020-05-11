@@ -2,6 +2,7 @@ package com.example.morseDecoder;
 
 import com.example.MorseCommonHelper;
 
+import java.util.List;
 import java.util.Map;
 
 public class MorseDecoderImpl implements MorseDecoder {
@@ -27,4 +28,14 @@ public class MorseDecoderImpl implements MorseDecoder {
 
         return result.toString();
     }
+
+    @Override
+    public <T> String decoder(List<T> list) {
+        StringBuilder code =  new StringBuilder();
+        list.forEach(code::append);
+
+        return decoder(code.toString());
+    }
+
+
 }

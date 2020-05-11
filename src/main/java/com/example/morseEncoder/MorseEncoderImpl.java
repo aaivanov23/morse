@@ -23,6 +23,6 @@ public class MorseEncoderImpl implements MorseEncoder {
             result.append(MorseCommonHelper.morseCode.get(item)).append(" ");
         });
 
-        return "\nResult:\n" + result.toString();
+        return result.toString();
     }
 }
